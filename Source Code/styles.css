@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+  --color-primary: #4a90e2;
+  --color-secondary: #50e3c2;
+  --color-accent: #f5a623;
+  --color-bg: #f9fbfd;
+  --color-text: #2c3e50;
+  --color-placeholder: #a0aec0;
+  --color-error: #e74c3c;
+  --color-success: #27ae60;
+  --shadow-light: 0 4px 15px rgba(74, 144, 226, 0.2);
+  --shadow-hover: 0 6px 20px rgba(80, 227, 194, 0.3);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem 2rem; /* equal horizontal padding */
+  color: var(--color-text);
+}
+
+.contact-glass {
+  background: #fff;
+  max-width: 460px;
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: var(--shadow-light);
+  padding: 3rem 2.5rem 2.5rem 2.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.contact-glass:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-header h2 {
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-primary);
+  letter-spacing: 0.03em;
+}
+
+.contact-header p {
+  font-size: 1rem;
+  color: var(--color-text);
+  opacity: 0.75;
+  margin-top: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 2px solid #d1d5db; /* light gray */
+  background: #fefefe;
+  color: var(--color-text);
+  outline-offset: 2px;
+  outline-color: transparent;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  resize: vertical;
+  font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-placeholder);
+  font-weight: 400;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 8px var(--color-primary);
+  outline-color: var(--color-primary);
+}
+
+label {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  padding: 0 0.3rem;
+  font-size: 1rem;
+  color: var(--color-placeholder);
+  pointer-events: none;
+  transition: 0.3s ease all;
+  font-weight: 500;
+}
+
+input:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:focus + label,
+textarea:not(:placeholder-shown) + label {
+  top: -0.6rem;
+  font-size: 0.8rem;
+  color: var(--color-primary);
+}
+
+textarea {
+  min-height: 100px;
+  max-height: 220px;
+}
+
+button[type="submit"] {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 1rem 0;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: var(--shadow-light);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+#formResponse {
+  margin-top: 1rem;
+  min-height: 28px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+#formResponse.error {
+  color: var(--color-error);
+}
+
+#formResponse.success {
+  color: var(--color-success);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .contact-glass {
+    padding: 2rem 1.5rem 2rem 1.5rem;
+  }
+
+  .contact-header h2 {
+    font-size: 1.75rem;
+  }
+
+  button[type="submit"] {
+    font-size: 1rem;
+    padding: 0.85rem 0;
+  }
+}
